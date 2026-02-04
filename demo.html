@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Resume</title>
+  <meta name="description" content="Resume of Your Name — role, focus, and selected work." />
+
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #11131a;
+      --text: #e9ecf1;
+      --muted: #a8b0bf;
+      --border: rgba(233,236,241,.12);
+      --link: #9ad0ff;
+      --chip: rgba(233,236,241,.08);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(154,208,255,.12), transparent 60%),
+        radial-gradient(700px 450px at 85% 15%, rgba(255,154,228,.08), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 80px; }
+    header{
+      display:flex; align-items:flex-start; justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .brand{
+      display:flex; gap: 14px; align-items: flex-start;
+    }
+    .monogram{
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(233,236,241,.04);
+      display:grid; place-items:center;
+      font-family: var(--mono);
+      letter-spacing: .08em;
+      user-select:none;
+    }
+    .hero h1{ margin: 0 0 6px; font-size: 26px; letter-spacing: -.02em; }
+    .hero p{ margin: 0; color: var(--muted); max-width: 58ch; }
+
+    .links{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      justify-content: flex-end;
+      padding-top: 2px;
+    }
+    .links a{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(233,236,241,.03);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    main{ margin-top: 22px; display: grid; gap: 18px; }
+    section{
+      padding: 18px 18px 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(233,236,241,.02);
+    }
+    section h2{
+      margin: 0 0 12px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .item{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+    .item:first-of-type{ border-top: 0; padding-top: 0; }
+    .meta{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+    .content h3{
+      margin: 0 0 4px;
+      font-size: 16px;
+      letter-spacing: -.01em;
+    }
+    .content .sub{
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .content ul{
+      margin: 0 0 12px 18px;
+      padding: 0;
+      color: var(--text);
+    }
+    .content li{ margin: 6px 0; }
+    .content .tags{
+      display:flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px;
+    }
+    .chip{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .pub{
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+    .pub:first-of-type{ border-top: 0; padding-top: 0; }
+    .pub .year{
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-bottom: 6px;
+    }
+    .pub h3{ margin: 0 0 6px; font-size: 16px; }
+    .pub p{ margin: 0 0 10px; color: var(--muted); }
+    .pub .venue{
+      display:inline-flex; gap: 10px; flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px){
+      header{ flex-direction: column; }
+      .links{ justify-content: flex-start; }
+      .item{ grid-template-columns: 1fr; }
+      .meta{ white-space: normal; }
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    /* Print */
+    @media print{
+      :root{ --bg: #ffffff; --text:#111; --muted:#444; --border:#ddd; --panel:#fff; --link:#000; --chip:#f3f3f3; --shadow:none; }
+      body{ background: #fff; }
+      header, section{ box-shadow:none; background:#fff; }
+      a{ text-decoration: underline; }
+      .links a{ border: 1px solid #ddd; }
+      .wrap{ padding: 0; }
+      footer{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header>
+      <div class="brand">
+        <div class="monogram" aria-hidden="true">YN</div>
+        <div class="hero">
+          <h1>Hi, I’m Your Name</h1>
+          <p>
+            Your current title / focus area. One-line credibility marker.
+            Former X at Y. Interested in A, B, C.
+          </p>
+        </div>
+      </div>
+
+      <nav class="links" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noreferrer">Scholar</a>
+        <a href="mailto:you@example.com">Email</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          Write 4–8 lines summarizing your background, domains, and what you’re building.
+          Mention impact, specialization, and the kinds of problems you work on.
+        </p>
+      </section>
+
+      <!-- EMPLOYMENT + EDUCATION (2-col on desktop) -->
+      <div class="grid2">
+
+        <section id="employment">
+          <h2>Employment History</h2>
+
+          <div class="item">
+            <div class="meta">2024 — Present</div>
+            <div class="content">
+              <h3>Company Name — Role Title</h3>
+              <p class="sub">One-line description of scope, product, or team.</p>
+              <ul>
+                <li>Impact bullet with metric or outcome.</li>
+                <li>Technical bullet: systems, models, infra, tooling.</li>
+                <li>Stakeholder bullet: collaboration, deployment, leadership.</li>
+              </ul>
+              <div class="tags">
+                <span class="chip">Python</span>
+                <span class="chip">LLMs</span>
+                <span class="chip">MLOps</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="meta">2022 — 2024</div>
+            <div class="content">
+              <h3>Previous Company — Role Title</h3>
+              <p class="sub">Short description of the role.</p>
+              <ul>
+                <li>Key achievement / shipped project.</li>
+                <li>Evaluation, reliability, or scale improvement.</li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+
+          <div class="item">
+            <div class="meta">2021 — 2023</div>
+            <div class="content">
+              <h3>University — Degree</h3>
+              <p class="sub">Focus area, lab, supervisor, thesis topic (optional).</p>
+              <ul>
+                <li>Relevant coursework / research contributions.</li>
+                <li>Awards, scholarships, or notable results.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="meta">2017 — 2021</div>
+            <div class="content">
+              <h3>University — Degree</h3>
+              <p class="sub">Minor / track / notable extracurriculars.</p>
+            </div>
+          </div>
+
+        </section>
+      </div>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="tags" aria-label="Skills list">
+          <span class="chip">Python</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Docker</span>
+          <span class="chip">AWS</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">TailwindCSS</span>
+        </div>
+      </section>
+
+      <!-- RESEARCH / PUBLICATIONS -->
+      <section id="publications">
+        <h2>Research &amp; Publications</h2>
+        <p style="margin-top:0;color:var(--muted)">
+          Selected papers/projects. Each entry: year, title, venue, 1–2 lines, links.
+        </p>
+
+        <article class="pub">
+          <div class="year">2025</div>
+          <h3>Project / Paper Title</h3>
+          <p>Two-sentence summary: problem, method, and why it matters.</p>
+          <div class="venue">
+            <span class="chip">NeurIPS</span>
+            <a href="#" target="_blank" rel="noreferrer">Paper</a>
+            <a href="#" target="_blank" rel="noreferrer">Code</a>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="year">2024</div>
+          <h3>Project / Paper Title</h3>
+          <p>Short description of contribution and results.</p>
+          <div class="venue">
+            <span class="chip">EMNLP</span>
+            <a href="#" target="_blank" rel="noreferrer">Preprint</a>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- OPTIONAL: PROJECTS -->
+      <section id="projects">
+        <h2>Selected Projects</h2>
+
+        <div class="item">
+          <div class="meta">Open Source</div>
+          <div class="content">
+            <h3>Project Name</h3>
+            <p class="sub">One-line positioning statement.</p>
+            <ul>
+              <li>What you built and why it’s notable.</li>
+              <li>Tech stack, performance, adoption, users, etc.</li>
+            </ul>
+            <p class="sub">
+              Links: <a href="#" target="_blank" rel="noreferrer">Repo</a> ·
+              <a href="#" target="_blank" rel="noreferrer">Demo</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="y"></span> Your Name · <span style="font-family:var(--mono)">you@example.com</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Update footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
