@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aya Awwad — Resume</title>
+  <style>
+    :root{
+      --accent:#0b5fff;
+      --muted:#6b6b6b;
+      --max-width:900px;
+      --gap:14px;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:#111;
+    }
+    body{
+      margin:0;
+      padding:28px;
+      background:#f7f8fb;
+      display:flex;
+      justify-content:center;
+    }
+    .container{
+      max-width:var(--max-width);
+      width:100%;
+      background:#fff;
+      padding:28px;
+      box-shadow:0 6px 18px rgba(20,20,40,0.06);
+      border-radius:8px;
+      box-sizing:border-box;
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .name {
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:-0.3px;
+      margin:0;
+    }
+    .contact {
+      text-align:right;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+    .contact a{ color:var(--accent); text-decoration:none; }
+    section{ margin-top:18px; }
+    .section-title{
+      font-weight:700;
+      margin:0 0 10px 0;
+      font-size:15px;
+      color:#141414;
+    }
+    .entry{
+      margin-bottom:12px;
+    }
+    .entry .meta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+    .role{ font-weight:600; }
+    .org{ color:var(--muted); font-size:13px; }
+    ul{ margin:8px 0 0 18px; }
+    li{ margin-bottom:6px; color:#222; font-size:14px; line-height:1.4; }
+    .muted { color:var(--muted); font-size:13px; }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:20px;
+    }
+    @media (max-width:880px){
+      .two-col{ grid-template-columns: 1fr; }
+      .contact{ text-align:left; }
+    }
+    /* Print-friendly */
+    @media print{
+      body{ background:white; padding:0; }
+      .container{ box-shadow:none; border-radius:0; padding:12px; }
+      .two-col{ grid-template-columns: 1fr; }
+      a::after{ content: " (" attr(href) ")"; font-size:10px; }
+    }
+    footer{ margin-top:18px; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <h1 class="name">Aya Awwad</h1>
+        <div class="muted">Research Fellow — Clinical Investigation & Translational Science</div>
+      </div>
+      <div class="contact">
+        50 Staniford Street • Boston, 02114<br />
+        <a href="mailto:aawwad@mgh.harvard.edu">aawwad@mgh.harvard.edu</a> • 857-891-5929<br />
+        LinkedIn: LinkedIn
+      </div>
+    </header>
+
+    <div class="two-col">
+      <main>
+        <section>
+          <h2 class="section-title">Education</h2>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Harvard University — MMSc in Clinical Investigation and Translational Science</div>
+                <div class="org">Cambridge, MA — May 2024</div>
+              </div>
+              <div class="muted">Awarded the Gordon Williams Gold Medal for best overall graduate</div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Technion Institute of Technology — Doctor of Medicine (Summa Cum Laude)</div>
+                <div class="org">Haifa, Israel — June 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Technion Institute of Technology — B.S. in Medical Sciences (Summa Cum Laude)</div>
+                <div class="org">Haifa, Israel — October 2017</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">Experience</h2>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Research Fellow — Mass General Hospital, Metabolism Unit</div>
+                <div class="org">Boston, MA — 06/2024 – present</div>
+              </div>
+            </div>
+            <ul>
+              <li>Conducting analyses for the REPRIEVE Trial using biostatistical, epidemiologic, and bioinformatic approaches to study cardiovascular risk in people with HIV.</li>
+              <li>Drafting statistical analysis plans, defining data harmonization strategies, and harmonizing data from multiple clinical trials.</li>
+              <li>Applying advanced statistical modeling (Cox regression, machine learning) and preparing abstracts, figures, and manuscripts.</li>
+              <li>Mentoring trainees and contributing to study design and variable selection discussions.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Graduate Student Researcher — Mass General Hospital, Kidney Research Lab</div>
+                <div class="org">Boston, MA — 2022–2024</div>
+              </div>
+            </div>
+            <ul>
+              <li>Investigated carbamylation and related post-translational modifications in CKD outcomes.</li>
+              <li>Designed research protocols and statistical analysis plans; conducted high-dimensional metabolomics analyses in R.</li>
+              <li>Collaborated across clinical and molecular teams and presented findings at scientific conferences.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Medical Advisor — newcase.ai</div>
+                <div class="org">Boston, MA — 2024–present</div>
+              </div>
+            </div>
+            <ul>
+              <li>Provide clinical domain expertise for an AI-driven e-discovery platform serving malpractice defense firms and insurers.</li>
+              <li>Advise on EHR data structure, clinical workflows, and expert-guided prompt optimization (StructEase).</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="meta">
+              <div>
+                <div class="role">Intern / General Physician — Rambam Healthcare Centre, Dept. of Internal Medicine</div>
+                <div class="org">Haifa, Israel — 02/2021 – 06/2022</div>
+              </div>
+            </div>
+            <ul>
+              <li>Managed admissions and acute care in a 40-bed ward and step-down ICU, collaborating with multidisciplinary teams.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">Academic Activities</h2>
+
+          <div class="entry">
+            <div class="role">Teaching</div>
+            <div class="muted">Teaching assistant and data science mentor — Harvard Medical School</div>
+            <ul>
+              <li>"Computationally Enabled Medicine" — AI & medicine interface</li>
+              <li>BMI708: Precision Medicine</li>
+              <li>CI760: Investigative Models for Translational Research</li>
+              <li>Introduction to R</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="role">Peer-review</div>
+            <div class="muted">Peer-Reviewed Scientific Articles & Editorial Experience</div>
+            <ul>
+              <li>Reviewed and published in journals including Circulation, JAHA, AJKD, PLOS Digital Health, BMC Medicine, EBioMedicine.</li>
+              <li>Served as Guest Editor for PLOS Digital Health.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="role">Talks & Presentations</div>
+            <ul>
+              <li>Invited talk — Harvard Medical School Master’s program research symposium (carbamylation & CKD progression).</li>
+              <li>Invited talk — MIT-IBM Watson AI Lab (StructEase clinical data classification work).</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">Leadership & Volunteering</h2>
+
+          <div class="entry">
+            <div class="role">Head of Advocacy and Policy — Harvard Medical School Master’s Students Council</div>
+            <div class="muted">Boston, MA — 2022–2024</div>
+            <ul>
+              <li>Established organizational policies, strengthened partnerships, and led advocacy and professional development initiatives.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="role">Educational Content Developer — Aafaq more.</div>
+            <div class="muted">Tamra, Israel — 03/2018 – 05/2021</div>
+            <ul>
+              <li>Co-founded an initiative to create YAEL exam preparation materials to increase access for non-Hebrew-speaking applicants.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">Awards & Scholarships</h2>
+          <ul>
+            <li>Fulbright Scholarship — U.S. Department of State</li>
+            <li>Gordon Williams Gold Medal for Research Excellence — Harvard Medical School</li>
+            <li>Summa Cum Laude — Technion Faculty of Medicine</li>
+            <li>All of Us Research Scholar — NIH via Baylor College of Medicine</li>
+            <li>Career Catalyst Program Fellow — Massachusetts General Hospital / Harvard Medical School</li>
+          </ul>
+        </section>
+      </main>
+
+      <aside>
+        <section>
+          <h2 class="section-title">Continued Education & Certificates</h2>
+          <ul>
+            <li>University of São Paulo — InnScid SP, Innovation & Science Diplomacy School (08.2023)</li>
+            <li>Big Data in Healthcare Workshop — Tel-Aviv, IL (01.2022–06.2022)</li>
+            <li>Vanderbilt University — Regression Modeling Strategies (05.2023)</li>
+            <li>Harvard University — Foundations of Clinical Research certificate (06.2021–01.2022)</li>
+            <li>Brown University — Technion Dean’s Award for Clinical Excellence exchange (02.2020)</li>
+            <li>ECFMG certified</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="section-title">Skills & Interests</h2>
+          <ul>
+            <li><strong>Technical:</strong> R, Python, REDCap</li>
+            <li><strong>Languages:</strong> Arabic (native), Hebrew (fluent)</li>
+            <li><strong>Interests:</strong> Clinical research, biostatistics, AI in medicine</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="section-title">Publications</h2>
+          <p class="muted">Full publication list available on Google Scholar.</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      Last updated: Feb 2026
+    </footer>
+  </div>
+</body>
+</html>
