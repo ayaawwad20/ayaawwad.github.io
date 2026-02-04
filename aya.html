@@ -1,208 +1,366 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aya Awwad — Resume</title>
+  <meta name="description" content="Resume of Aya Awwad — Research Fellow in Clinical Investigation & Translational Science." />
+
   <style>
     :root{
-      --accent:#0b5fff;
-      --muted:#6b6b6b;
-      --max-width:900px;
-      --gap:14px;
-      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color:#111;
+      --bg: #0b0c10;
+      --panel: #11131a;
+      --text: #e9ecf1;
+      --muted: #a8b0bf;
+      --border: rgba(233,236,241,.12);
+      --link: #9ad0ff;
+      --chip: rgba(233,236,241,.08);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
     body{
       margin:0;
-      padding:28px;
-      background:#f7f8fb;
-      display:flex;
-      justify-content:center;
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(154,208,255,.12), transparent 60%),
+        radial-gradient(700px 450px at 85% 15%, rgba(255,154,228,.08), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
-    .container{
-      max-width:var(--max-width);
-      width:100%;
-      background:#fff;
-      padding:28px;
-      box-shadow:0 6px 18px rgba(20,20,40,0.06);
-      border-radius:8px;
-      box-sizing:border-box;
-    }
+
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 80px; }
     header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+      display:flex; align-items:flex-start; justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .name {
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:-0.3px;
-      margin:0;
+
+    .brand{
+      display:flex; gap: 14px; align-items: flex-start;
     }
-    .contact {
-      text-align:right;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.45;
+    .monogram{
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(233,236,241,.04);
+      display:grid; place-items:center;
+      font-family: var(--mono);
+      letter-spacing: .08em;
+      user-select:none;
     }
-    .contact a{ color:var(--accent); text-decoration:none; }
-    section{ margin-top:18px; }
-    .section-title{
-      font-weight:700;
-      margin:0 0 10px 0;
-      font-size:15px;
-      color:#141414;
+    .hero h1{ margin: 0 0 6px; font-size: 26px; letter-spacing: -.02em; }
+    .hero p{ margin: 0; color: var(--muted); max-width: 58ch; }
+
+    .links{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      justify-content: flex-end;
+      padding-top: 2px;
     }
-    .entry{
-      margin-bottom:12px;
+    .links a{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(233,236,241,.03);
+      font-size: 14px;
+      white-space: nowrap;
     }
-    .entry .meta{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:baseline;
-      flex-wrap:wrap;
+
+    main{ margin-top: 22px; display: grid; gap: 18px; }
+    section{
+      padding: 18px 18px 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(233,236,241,.02);
     }
-    .role{ font-weight:600; }
-    .org{ color:var(--muted); font-size:13px; }
-    ul{ margin:8px 0 0 18px; }
-    li{ margin-bottom:6px; color:#222; font-size:14px; line-height:1.4; }
-    .muted { color:var(--muted); font-size:13px; }
-    .two-col{
+    section h2{
+      margin: 0 0 12px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .item{
       display:grid;
-      grid-template-columns: 1fr 320px;
-      gap:20px;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
     }
-    @media (max-width:880px){
-      .two-col{ grid-template-columns: 1fr; }
-      .contact{ text-align:left; }
+    .item:first-of-type{ border-top: 0; padding-top: 0; }
+    .meta{
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--muted);
+      padding-top: 2px;
+      white-space: nowrap;
     }
-    /* Print-friendly */
+    .content h3{
+      margin: 0 0 4px;
+      font-size: 16px;
+      letter-spacing: -.01em;
+    }
+    .content .sub{
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .content ul{
+      margin: 0 0 12px 18px;
+      padding: 0;
+      color: var(--text);
+    }
+    .content li{ margin: 6px 0; }
+    .content .tags{
+      display:flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px;
+    }
+    .chip{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .pub{
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+    .pub:first-of-type{ border-top: 0; padding-top: 0; }
+    .pub .year{
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-bottom: 6px;
+    }
+    .pub h3{ margin: 0 0 6px; font-size: 16px; }
+    .pub p{ margin: 0 0 10px; color: var(--muted); }
+    .pub .venue{
+      display:inline-flex; gap: 10px; flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .award-item{
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+    .award-item:first-of-type{ border-top: 0; padding-top: 0; }
+    .award-item h3{ margin: 0 0 4px; font-size: 15px; }
+    .award-item .sub{ margin: 0; color: var(--muted); font-size: 13px; }
+
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px){
+      header{ flex-direction: column; }
+      .links{ justify-content: flex-start; }
+      .item{ grid-template-columns: 1fr; }
+      .meta{ white-space: normal; }
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
     @media print{
-      body{ background:white; padding:0; }
-      .container{ box-shadow:none; border-radius:0; padding:12px; }
-      .two-col{ grid-template-columns: 1fr; }
-      a::after{ content: " (" attr(href) ")"; font-size:10px; }
+      :root{ --bg: #ffffff; --text:#111; --muted:#444; --border:#ddd; --panel:#fff; --link:#000; --chip:#f3f3f3; --shadow:none; }
+      body{ background: #fff; }
+      header, section{ box-shadow:none; background:#fff; }
+      a{ text-decoration: underline; }
+      .links a{ border: 1px solid #ddd; }
+      .wrap{ padding: 0; }
+      footer{ display:none; }
     }
-    footer{ margin-top:18px; color:var(--muted); font-size:13px; }
   </style>
 </head>
+
 <body>
-  <div class="container" role="main">
+  <div class="wrap">
+
+    <!-- HERO -->
     <header>
-      <div>
-        <h1 class="name">Aya Awwad</h1>
-        <div class="muted">Research Fellow — Clinical Investigation & Translational Science</div>
+      <div class="brand">
+        <div class="monogram" aria-hidden="true">AA</div>
+        <div class="hero">
+          <h1>Hi, I'm Aya Awwad</h1>
+          <p>
+            Research Fellow in Clinical Investigation & Translational Science.
+            Fulbright Scholar. Harvard MMSc Gold Medalist. Physician-scientist focused on cardiovascular risk, AI in medicine, and clinical data science.
+          </p>
+        </div>
       </div>
-      <div class="contact">
-        50 Staniford Street • Boston, 02114<br />
-        <a href="mailto:aawwad@mgh.harvard.edu">aawwad@mgh.harvard.edu</a> • 857-891-5929<br />
-        LinkedIn: LinkedIn
-      </div>
+
+      <nav class="links" aria-label="Contact links">
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Scholar</a>
+        <a href="mailto:aawwad@mgh.harvard.edu">Email</a>
+      </nav>
     </header>
 
-    <div class="two-col">
-      <main>
-        <section>
-          <h2 class="section-title">Education</h2>
+    <main>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Harvard University — MMSc in Clinical Investigation and Translational Science</div>
-                <div class="org">Cambridge, MA — May 2024</div>
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I'm a physician-scientist and Research Fellow at Mass General Hospital's Metabolism Unit, where I study cardiovascular risk in people with HIV through the REPRIEVE Trial. My work bridges clinical medicine, biostatistics, and AI—applying advanced statistical modeling, machine learning, and bioinformatics to translational research questions. I hold an MMSc from Harvard Medical School (awarded the Gordon Williams Gold Medal) and an MD from Technion Institute of Technology. I'm passionate about leveraging data science to improve patient outcomes and mentor the next generation of clinical researchers.
+        </p>
+      </section>
+
+      <!-- EXPERIENCE + EDUCATION (2-col on desktop) -->
+      <div class="grid2">
+
+        <section id="experience">
+          <h2>Experience</h2>
+
+          <div class="item">
+            <div class="meta">2024 — Present</div>
+            <div class="content">
+              <h3>Mass General Hospital — Research Fellow</h3>
+              <p class="sub">Metabolism Unit, Boston, MA</p>
+              <ul>
+                <li>Conducting analyses for the REPRIEVE Trial using biostatistical, epidemiologic, and bioinformatic approaches.</li>
+                <li>Drafting statistical analysis plans and harmonizing data from multiple clinical trials.</li>
+                <li>Applying Cox regression and machine learning for cardiovascular risk modeling.</li>
+                <li>Mentoring trainees and contributing to study design discussions.</li>
+              </ul>
+              <div class="tags">
+                <span class="chip">R</span>
+                <span class="chip">Biostatistics</span>
+                <span class="chip">ML</span>
               </div>
-              <div class="muted">Awarded the Gordon Williams Gold Medal for best overall graduate</div>
             </div>
           </div>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Technion Institute of Technology — Doctor of Medicine (Summa Cum Laude)</div>
-                <div class="org">Haifa, Israel — June 2022</div>
-              </div>
+          <div class="item">
+            <div class="meta">2024 — Present</div>
+            <div class="content">
+              <h3>newcase.ai — Medical Advisor</h3>
+              <p class="sub">Boston, MA</p>
+              <ul>
+                <li>Providing clinical domain expertise for AI-driven e-discovery platform.</li>
+                <li>Advising on EHR data structure and prompt optimization (StructEase).</li>
+              </ul>
             </div>
           </div>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Technion Institute of Technology — B.S. in Medical Sciences (Summa Cum Laude)</div>
-                <div class="org">Haifa, Israel — October 2017</div>
-              </div>
+          <div class="item">
+            <div class="meta">2022 — 2024</div>
+            <div class="content">
+              <h3>Mass General Hospital — Graduate Student Researcher</h3>
+              <p class="sub">Kidney Research Lab, Boston, MA</p>
+              <ul>
+                <li>Investigated carbamylation and post-translational modifications in CKD outcomes.</li>
+                <li>Designed research protocols and conducted high-dimensional metabolomics analyses.</li>
+              </ul>
             </div>
           </div>
+
+          <div class="item">
+            <div class="meta">2021 — 2022</div>
+            <div class="content">
+              <h3>Rambam Healthcare Centre — Intern / General Physician</h3>
+              <p class="sub">Dept. of Internal Medicine, Haifa, Israel</p>
+              <ul>
+                <li>Managed admissions and acute care in a 40-bed ward and step-down ICU.</li>
+              </ul>
+            </div>
+          </div>
+
         </section>
 
-        <section>
-          <h2 class="section-title">Experience</h2>
+        <section id="education">
+          <h2>Education</h2>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Research Fellow — Mass General Hospital, Metabolism Unit</div>
-                <div class="org">Boston, MA — 06/2024 – present</div>
-              </div>
+          <div class="item">
+            <div class="meta">2022 — 2024</div>
+            <div class="content">
+              <h3>Harvard University — MMSc</h3>
+              <p class="sub">Clinical Investigation & Translational Science</p>
+              <ul>
+                <li>Gordon Williams Gold Medal for best overall graduate.</li>
+                <li>Focus: Biostatistics, clinical research methodology, AI in medicine.</li>
+              </ul>
             </div>
-            <ul>
-              <li>Conducting analyses for the REPRIEVE Trial using biostatistical, epidemiologic, and bioinformatic approaches to study cardiovascular risk in people with HIV.</li>
-              <li>Drafting statistical analysis plans, defining data harmonization strategies, and harmonizing data from multiple clinical trials.</li>
-              <li>Applying advanced statistical modeling (Cox regression, machine learning) and preparing abstracts, figures, and manuscripts.</li>
-              <li>Mentoring trainees and contributing to study design and variable selection discussions.</li>
-            </ul>
           </div>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Graduate Student Researcher — Mass General Hospital, Kidney Research Lab</div>
-                <div class="org">Boston, MA — 2022–2024</div>
-              </div>
+          <div class="item">
+            <div class="meta">2017 — 2022</div>
+            <div class="content">
+              <h3>Technion Institute of Technology — MD</h3>
+              <p class="sub">Doctor of Medicine, Summa Cum Laude</p>
+              <ul>
+                <li>Dean's Award for Clinical Excellence.</li>
+                <li>Brown University exchange program.</li>
+              </ul>
             </div>
-            <ul>
-              <li>Investigated carbamylation and related post-translational modifications in CKD outcomes.</li>
-              <li>Designed research protocols and statistical analysis plans; conducted high-dimensional metabolomics analyses in R.</li>
-              <li>Collaborated across clinical and molecular teams and presented findings at scientific conferences.</li>
-            </ul>
           </div>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Medical Advisor — newcase.ai</div>
-                <div class="org">Boston, MA — 2024–present</div>
-              </div>
+          <div class="item">
+            <div class="meta">2013 — 2017</div>
+            <div class="content">
+              <h3>Technion Institute of Technology — B.S.</h3>
+              <p class="sub">Medical Sciences, Summa Cum Laude</p>
             </div>
-            <ul>
-              <li>Provide clinical domain expertise for an AI-driven e-discovery platform serving malpractice defense firms and insurers.</li>
-              <li>Advise on EHR data structure, clinical workflows, and expert-guided prompt optimization (StructEase).</li>
-            </ul>
           </div>
 
-          <div class="entry">
-            <div class="meta">
-              <div>
-                <div class="role">Intern / General Physician — Rambam Healthcare Centre, Dept. of Internal Medicine</div>
-                <div class="org">Haifa, Israel — 02/2021 – 06/2022</div>
-              </div>
-            </div>
-            <ul>
-              <li>Managed admissions and acute care in a 40-bed ward and step-down ICU, collaborating with multidisciplinary teams.</li>
-            </ul>
-          </div>
         </section>
+      </div>
 
-        <section>
-          <h2 class="section-title">Academic Activities</h2>
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="tags" aria-label="Skills list">
+          <span class="chip">R</span>
+          <span class="chip">Python</span>
+          <span class="chip">REDCap</span>
+          <span class="chip">Biostatistics</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Cox Regression</span>
+          <span class="chip">Metabolomics</span>
+          <span class="chip">Clinical Trial Design</span>
+          <span class="chip">Data Harmonization</span>
+        </div>
+        <div class="tags" style="margin-top: 8px;">
+          <span class="chip">Arabic (Native)</span>
+          <span class="chip">Hebrew (Fluent)</span>
+          <span class="chip">English (Fluent)</span>
+        </div>
+      </section>
 
-          <div class="entry">
-            <div class="role">Teaching</div>
-            <div class="muted">Teaching assistant and data science mentor — Harvard Medical School</div>
+      <!-- ACADEMIC ACTIVITIES -->
+      <section id="academic">
+        <h2>Academic Activities</h2>
+
+        <div class="item">
+          <div class="meta">Teaching</div>
+          <div class="content">
+            <h3>Harvard Medical School — TA & Data Science Mentor</h3>
             <ul>
               <li>"Computationally Enabled Medicine" — AI & medicine interface</li>
               <li>BMI708: Precision Medicine</li>
@@ -210,89 +368,114 @@
               <li>Introduction to R</li>
             </ul>
           </div>
+        </div>
 
-          <div class="entry">
-            <div class="role">Peer-review</div>
-            <div class="muted">Peer-Reviewed Scientific Articles & Editorial Experience</div>
+        <div class="item">
+          <div class="meta">Peer Review</div>
+          <div class="content">
+            <h3>Reviewer & Guest Editor</h3>
+            <p class="sub">Circulation, JAHA, AJKD, PLOS Digital Health, BMC Medicine, EBioMedicine</p>
             <ul>
-              <li>Reviewed and published in journals including Circulation, JAHA, AJKD, PLOS Digital Health, BMC Medicine, EBioMedicine.</li>
-              <li>Served as Guest Editor for PLOS Digital Health.</li>
+              <li>Guest Editor for PLOS Digital Health.</li>
             </ul>
           </div>
+        </div>
 
-          <div class="entry">
-            <div class="role">Talks & Presentations</div>
+        <div class="item">
+          <div class="meta">Talks</div>
+          <div class="content">
+            <h3>Invited Presentations</h3>
             <ul>
-              <li>Invited talk — Harvard Medical School Master’s program research symposium (carbamylation & CKD progression).</li>
-              <li>Invited talk — MIT-IBM Watson AI Lab (StructEase clinical data classification work).</li>
+              <li>Harvard Medical School Master's Symposium — Carbamylation & CKD progression.</li>
+              <li>MIT-IBM Watson AI Lab — StructEase clinical data classification.</li>
             </ul>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <h2 class="section-title">Leadership & Volunteering</h2>
+      </section>
 
-          <div class="entry">
-            <div class="role">Head of Advocacy and Policy — Harvard Medical School Master’s Students Council</div>
-            <div class="muted">Boston, MA — 2022–2024</div>
+      <!-- AWARDS -->
+      <section id="awards">
+        <h2>Awards & Scholarships</h2>
+
+        <div class="award-item">
+          <h3>Fulbright Scholarship</h3>
+          <p class="sub">U.S. Department of State</p>
+        </div>
+
+        <div class="award-item">
+          <h3>Gordon Williams Gold Medal for Research Excellence</h3>
+          <p class="sub">Harvard Medical School</p>
+        </div>
+
+        <div class="award-item">
+          <h3>All of Us Research Scholar</h3>
+          <p class="sub">NIH via Baylor College of Medicine</p>
+        </div>
+
+        <div class="award-item">
+          <h3>Career Catalyst Program Fellow</h3>
+          <p class="sub">Massachusetts General Hospital / Harvard Medical School</p>
+        </div>
+
+        <div class="award-item">
+          <h3>Summa Cum Laude</h3>
+          <p class="sub">Technion Faculty of Medicine (MD & BS)</p>
+        </div>
+
+      </section>
+
+      <!-- LEADERSHIP -->
+      <section id="leadership">
+        <h2>Leadership & Service</h2>
+
+        <div class="item">
+          <div class="meta">2022 — 2024</div>
+          <div class="content">
+            <h3>Head of Advocacy and Policy</h3>
+            <p class="sub">Harvard Medical School Master's Students Council</p>
             <ul>
-              <li>Established organizational policies, strengthened partnerships, and led advocacy and professional development initiatives.</li>
+              <li>Established organizational policies and led advocacy initiatives.</li>
+              <li>Strengthened partnerships and professional development programs.</li>
             </ul>
           </div>
+        </div>
 
-          <div class="entry">
-            <div class="role">Educational Content Developer — Aafaq more.</div>
-            <div class="muted">Tamra, Israel — 03/2018 – 05/2021</div>
+        <div class="item">
+          <div class="meta">2018 — 2021</div>
+          <div class="content">
+            <h3>Educational Content Developer — Aafaq</h3>
+            <p class="sub">Co-founder, Tamra, Israel</p>
             <ul>
-              <li>Co-founded an initiative to create YAEL exam preparation materials to increase access for non-Hebrew-speaking applicants.</li>
+              <li>Created YAEL exam prep materials to increase access for non-Hebrew-speaking applicants.</li>
             </ul>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <h2 class="section-title">Awards & Scholarships</h2>
-          <ul>
-            <li>Fulbright Scholarship — U.S. Department of State</li>
-            <li>Gordon Williams Gold Medal for Research Excellence — Harvard Medical School</li>
-            <li>Summa Cum Laude — Technion Faculty of Medicine</li>
-            <li>All of Us Research Scholar — NIH via Baylor College of Medicine</li>
-            <li>Career Catalyst Program Fellow — Massachusetts General Hospital / Harvard Medical School</li>
-          </ul>
-        </section>
-      </main>
+      </section>
 
-      <aside>
-        <section>
-          <h2 class="section-title">Continued Education & Certificates</h2>
-          <ul>
-            <li>University of São Paulo — InnScid SP, Innovation & Science Diplomacy School (08.2023)</li>
-            <li>Big Data in Healthcare Workshop — Tel-Aviv, IL (01.2022–06.2022)</li>
-            <li>Vanderbilt University — Regression Modeling Strategies (05.2023)</li>
-            <li>Harvard University — Foundations of Clinical Research certificate (06.2021–01.2022)</li>
-            <li>Brown University — Technion Dean’s Award for Clinical Excellence exchange (02.2020)</li>
-            <li>ECFMG certified</li>
-          </ul>
-        </section>
+      <!-- CERTIFICATIONS -->
+      <section id="certifications">
+        <h2>Certifications & Continued Education</h2>
+        <div class="tags" aria-label="Certifications">
+          <span class="chip">ECFMG Certified</span>
+          <span class="chip">Vanderbilt — Regression Modeling Strategies</span>
+          <span class="chip">Harvard — Foundations of Clinical Research</span>
+          <span class="chip">InnScid SP — Science Diplomacy</span>
+          <span class="chip">Big Data in Healthcare Workshop</span>
+        </div>
+      </section>
 
-        <section>
-          <h2 class="section-title">Skills & Interests</h2>
-          <ul>
-            <li><strong>Technical:</strong> R, Python, REDCap</li>
-            <li><strong>Languages:</strong> Arabic (native), Hebrew (fluent)</li>
-            <li><strong>Interests:</strong> Clinical research, biostatistics, AI in medicine</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="section-title">Publications</h2>
-          <p class="muted">Full publication list available on Google Scholar.</p>
-        </section>
-      </aside>
-    </div>
+    </main>
 
     <footer>
-      Last updated: Feb 2026
+      © <span id="y"></span> Aya Awwad · <span style="font-family:var(--mono)">aawwad@mgh.harvard.edu</span> · 50 Staniford Street, Boston, MA 02114
     </footer>
+
   </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
