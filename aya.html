@@ -22,7 +22,14 @@
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
-
+    .profile-pic {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
     *{ box-sizing: border-box; }
     html, body { height: 100%; }
     body{
@@ -204,9 +211,10 @@
 
     <!-- HERO -->
     <header>
-      <div class="brand">
-        <div class="monogram" aria-hidden="true">AA</div>
-        <div class="hero">
+   <div class="brand">
+  <img src="images/profile.jpg" alt="Aya Awwad" class="profile-pic" />
+  <div class="hero">
+
           <h1>Hi, I'm Aya Awwad</h1>
           <p>
             Research Fellow in Clinical Investigation & Translational Science.
